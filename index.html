@@ -1,0 +1,300 @@
+<!doctype html> 
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mariage — André & Lusiné</title>
+  <meta name="description" content="Mariage d’André & Lusiné — programme, lieux et RSVP." />
+
+  <!-- Fonts (✅ Noto Sans Armenian retiré pour garder le même style que le FR) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Sans+Armenian:wght@400;500;600;700&family=Noto+Serif+Armenian:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="main.js"></script>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header" id="top">
+    <div class="container header__inner">
+      <a class="brand" href="#accueil" aria-label="Accueil">
+        <span class="brand__logo" aria-hidden="true">A&L</span>
+      </a>
+
+      <div class="header__right">
+        <!-- Switch langue toujours visible (✅ drapeaux emoji inchangés) -->
+        <div class="lang lang--header" aria-label="Choix de langue">
+          <button class="lang__btn flag" type="button" data-lang="fr" aria-label="Français">🇫🇷</button>
+          <button class="lang__btn flag" type="button" data-lang="hy" aria-label="Arménien">🇦🇲</button>
+        </div>
+
+        <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <nav class="nav" id="nav" aria-label="Navigation principale">
+        <a class="nav__link" href="#accueil" data-i18n="nav_home">Accueil</a>
+        <a class="nav__link" href="#programme" data-i18n="nav_program">Programme</a>
+        <a class="nav__link" href="#galerie" data-i18n="nav_gallery">Galerie</a>
+        <a class="nav__link" href="#lieux" data-i18n="nav_places">Nos lieux</a>
+        <a class="nav__link nav__link--cta" href="#presence" data-i18n="nav_rsvp">Formulaire de présence</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="accueil" aria-label="Accueil">
+      <!-- Background -->
+      <div class="hero__bg">
+        <img src="images/hero.jpeg" alt="">
+      </div>
+
+      <div class="container hero__layout">
+        <!-- ✅ À la place de la colonne photo : espace vide pour laisser voir le background -->
+        <div class="hero__spacer" aria-hidden="true"></div>
+
+        <!-- Carte -->
+        <div class="hero__card hero__card--right">
+
+          <!-- ✅ Renoncules en SVG (au lieu des PNG) -->
+          <svg class="floral-svg floral-top" viewBox="0 0 220 220" aria-hidden="true">
+            <defs>
+              <linearGradient id="rg1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#E6D3A3"/>
+                <stop offset="1" stop-color="#C9A24A"/>
+              </linearGradient>
+            </defs>
+            <g fill="none" stroke="url(#rg1)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".95">
+              <!-- renoncule “pétales” -->
+              <path d="M110 32 C132 38 148 58 146 80 C144 104 124 116 110 118 C96 116 76 104 74 80 C72 58 88 38 110 32 Z"/>
+              <path d="M110 52 C125 56 136 70 134 84 C132 100 120 108 110 110 C100 108 88 100 86 84 C84 70 95 56 110 52 Z"/>
+              <path d="M110 72 C120 74 128 82 126 92 C124 102 116 106 110 108 C104 106 96 102 94 92 C92 82 100 74 110 72 Z"/>
+
+              <!-- tiges & feuilles -->
+              <path d="M150 40 C160 70 150 98 126 118"/>
+              <path d="M70 56 C78 88 92 112 112 132"/>
+              <path d="M62 120 C84 116 96 126 98 144"/>
+              <path d="M150 120 C128 116 116 126 114 144"/>
+
+              <!-- petites fleurs -->
+              <circle cx="66" cy="122" r="10"/>
+              <circle cx="156" cy="122" r="9"/>
+              <circle cx="86" cy="156" r="7"/>
+            </g>
+          </svg>
+
+          <svg class="floral-svg floral-bottom" viewBox="0 0 220 220" aria-hidden="true">
+            <defs>
+              <linearGradient id="rg2" x1="1" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#E6D3A3"/>
+                <stop offset="1" stop-color="#C9A24A"/>
+              </linearGradient>
+            </defs>
+            <g fill="none" stroke="url(#rg2)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".95">
+              <path d="M110 38 C134 44 150 64 148 88 C146 116 122 130 110 132 C98 130 74 116 72 88 C70 64 86 44 110 38 Z"/>
+              <path d="M110 60 C126 64 138 78 136 94 C134 110 122 118 110 120 C98 118 86 110 84 94 C82 78 94 64 110 60 Z"/>
+              <path d="M50 160 C78 154 96 164 104 184"/>
+              <path d="M170 160 C142 154 124 164 116 184"/>
+              <circle cx="52" cy="160" r="9"/>
+              <circle cx="168" cy="160" r="9"/>
+            </g>
+          </svg>
+
+          <p class="hero__kicker" data-i18n="hero_kicker">Notre Mariage</p>
+          <h1 class="hero__names" data-i18n="hero_names">André & Lusiné</h1>
+
+          <p class="hero__meta">
+            <span data-i18n="hero_date">Samedi 9 mai 2026</span>
+            <span class="dot" aria-hidden="true">•</span>
+            <span data-i18n="hero_city">Nancy</span>
+          </p>
+
+          <!-- Countdown -->
+          <div class="countdown" id="countdown" aria-label="Compte à rebours">
+            <div class="cd">
+              <div class="cd__num" data-cd="days">—</div>
+              <div class="cd__label" data-i18n="cd_days">Jours</div>
+            </div>
+            <div class="cd">
+              <div class="cd__num" data-cd="hours">—</div>
+              <div class="cd__label" data-i18n="cd_hours">Heures</div>
+            </div>
+            <div class="cd">
+              <div class="cd__num" data-cd="minutes">—</div>
+              <div class="cd__label" data-i18n="cd_minutes">Minutes</div>
+            </div>
+            <div class="cd">
+              <div class="cd__num" data-cd="seconds">—</div>
+              <div class="cd__label" data-i18n="cd_seconds">Secondes</div>
+            </div>
+          </div>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#presence" data-i18n="hero_cta">Confirmer ma présence</a>
+            <a class="btn btn--ghost2" href="#programme" data-i18n="hero_secondary">Voir le programme</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMME -->
+    <section class="section section--paper" id="programme">
+      <div class="container">
+        <h2 class="section-title"><span data-i18n="program_title">Programme</span></h2>
+        <p class="section-subtitle" data-i18n="program_subtitle">Le programme de la journée</p>
+
+        <div class="timeline">
+          <div class="timeline__item">
+            <div class="timeline__time">16:00</div>
+            <div class="timeline__icon" aria-hidden="true">🏛️</div>
+            <div class="timeline__label" data-i18n="program_1">Cérémonie civile — Hôtel de Ville</div>
+            <div class="timeline__hint" data-i18n="program_1_hint">Entrée Place Stanislas</div>
+          </div>
+
+          <div class="timeline__item">
+            <div class="timeline__time">18:00</div>
+            <div class="timeline__icon" aria-hidden="true">🥂</div>
+            <div class="timeline__label" data-i18n="program_2">Vin d’honneur — Château de Vandeléville</div>
+          </div>
+
+          <div class="timeline__item">
+            <div class="timeline__time">20:00</div>
+            <div class="timeline__icon" aria-hidden="true">🍽️</div>
+            <div class="timeline__label" data-i18n="program_3">Dîner assis — Château de Vandeléville</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIE (BENTO) -->
+    <section class="section" id="galerie">
+      <div class="container">
+        <h2 class="section-title"><span data-i18n="gallery_title">Galerie</span></h2>
+        <p class="section-subtitle" data-i18n="gallery_subtitle">Nos souvenirs</p>
+
+        <div class="gallery-bento">
+          <a class="gcard gcard--big" href="./img/gallery-1.jpg" aria-label="Ouvrir photo">
+            <img src="./img/gallery-1.jpg" alt="" />
+            <span class="gcard__overlay"></span>
+          </a>
+
+          <a class="gcard" href="./img/gallery-2.jpg" aria-label="Ouvrir photo"><img src="./img/gallery-2.jpg" alt="" /><span class="gcard__overlay"></span></a>
+          <a class="gcard" href="./img/gallery-3.jpg" aria-label="Ouvrir photo"><img src="./img/gallery-3.jpg" alt="" /><span class="gcard__overlay"></span></a>
+          <a class="gcard" href="./img/gallery-4.jpg" aria-label="Ouvrir photo"><img src="./img/gallery-4.jpg" alt="" /><span class="gcard__overlay"></span></a>
+          <a class="gcard" href="./img/gallery-5.jpg" aria-label="Ouvrir photo"><img src="./img/gallery-5.jpg" alt="" /><span class="gcard__overlay"></span></a>
+        </div>
+
+        <p class="note" data-i18n="gallery_note">Cliquez sur une photo pour l’ouvrir.</p>
+      </div>
+    </section>
+
+    <!-- NOS LIEUX -->
+    <section class="section section--paper" id="lieux">
+      <div class="container">
+        <h2 class="section-title"><span data-i18n="places_title">Nos lieux</span></h2>
+        <p class="section-subtitle" data-i18n="places_subtitle">Adresses, cartes et itinéraires</p>
+
+        <!-- MAIRIE -->
+        <article class="place">
+          <div class="place__media">
+            <img src="./img/mairie.jpg" alt="" />
+          </div>
+
+          <div class="place__info card">
+            <div class="card__head">
+              <h3 class="card__title" data-i18n="townhall_title">Hôtel de Ville de Nancy</h3>
+              <p class="card__role" data-i18n="townhall_role">Cérémonie civile — 16h00</p>
+            </div>
+
+            <p class="card__text" data-i18n="townhall_desc">Entrée par la place Stanislas.</p>
+
+            <div class="place__addr">
+              <div class="addr__line" data-i18n="townhall_addr_line1">Hôtel de Ville de Nancy</div>
+              <div class="addr__line addr__muted" data-i18n="townhall_addr_line2">Place Stanislas, 54000 Nancy</div>
+            </div>
+
+            <div class="map">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4429.268442731055!2d6.181879190523767!3d48.692888276426984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4794986d3c7c2b5b%3A0x270a20175ea5b66c!2sH%C3%B4tel%20de%20Ville%20-%20Mairie%20de%20Nancy!5e0!3m2!1sfr!2sfr!4v1771110141571!5m2!1sfr!2sfr"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <div class="card__actions">
+              <!-- ✅ liens fonctionnels -->
+              <a class="btn btn--primary" href="https://www.google.com/maps/place/H%C3%B4tel+de+Ville+-+Mairie+de+Nancy" target="_blank" rel="noopener" data-i18n="btn_map">Voir sur la carte</a>
+              <a class="btn btn--ghost" href="https://www.google.com/maps/dir/?api=1&destination=H%C3%B4tel%20de%20Ville%20-%20Mairie%20de%20Nancy%2C%20Nancy" target="_blank" rel="noopener" data-i18n="btn_route">Itinéraire</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CHATEAU -->
+        <article class="place">
+          <div class="place__media">
+            <img src="./img/chateau.jpg" alt="" />
+          </div>
+
+          <div class="place__info card">
+            <div class="card__head">
+              <h3 class="card__title" data-i18n="castle_title">Château de Vandeléville</h3>
+              <p class="card__role" data-i18n="castle_role">Réception — 18h00 • Dîner assis — 20h00</p>
+            </div>
+
+            <p class="card__text" data-i18n="castle_desc">3, place du Château, Vandeléville.</p>
+
+            <div class="place__addr">
+              <div class="addr__line" data-i18n="castle_addr_line1">Château de Vandeléville</div>
+              <div class="addr__line addr__muted" data-i18n="castle_addr_line2">3, place du Château, 54115 Vandeléville</div>
+            </div>
+
+            <div class="map">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2647.5423184728907!2d5.992767776247268!3d48.42693043097299!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47935b6b93935d47%3A0x28827296be2c3093!2sCh%C3%A2teau%20de%20Vandel%C3%A9ville!5e0!3m2!1sfr!2sfr!4v1771109609219!5m2!1sfr!2sfr"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <div class="card__actions">
+              <!-- ✅ liens fonctionnels -->
+              <a class="btn btn--primary" href="https://www.google.com/maps/place/Ch%C3%A2teau+de+Vandel%C3%A9ville" target="_blank" rel="noopener" data-i18n="btn_map">Voir sur la carte</a>
+              <a class="btn btn--ghost" href="https://www.google.com/maps/dir/?api=1&destination=Ch%C3%A2teau%20de%20Vandel%C3%A9ville%2C%2054115%20Vandel%C3%A9ville" target="_blank" rel="noopener" data-i18n="btn_route">Itinéraire</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- RSVP / FORMULAIRE -->
+    <section class="section" id="presence">
+      <div class="container">
+        <h2 class="section-title"><span data-i18n="rsvp_title">Formulaire de présence</span></h2>
+        <p class="section-subtitle" data-i18n="rsvp_subtitle">Merci de compléter et confirmer votre présence</p>
+        <p class="note note--strong" data-i18n="rsvp_deadline">Merci de nous confirmer votre présence avant le 15 avril 2026.</p>
+
+        <div class="form-embed card">
+          <iframe
+            title="Google Form RSVP"
+            src="https://docs.google.com/forms/d/e/XXXXXXXXXXXX/viewform?embedded=true"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <p class="footer__names" data-i18n="footer_names">André & Lusiné</p>
+        <p class="footer__meta" data-i18n="footer_meta">Samedi 9 mai 2026 — Nancy</p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" type="button" aria-label="Fermer">×</button>
+    <img class="lightbox__img" alt="" />
+  </div>
+</body>
+</html>
