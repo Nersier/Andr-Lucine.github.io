@@ -31,8 +31,7 @@
   --font-serif: "Noto Serif", serif;
   --font-body-hy: "Noto Sans Armenian", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   --font-serif-hy: "Noto Serif Armenian", serif;
- --font-script: "Allura", "Great Vibes", cursive;
-
+  --font-script: "Allura", "Great Vibes", cursive;
 
   --ring: 0 0 0 3px rgba(201,162,74,.28);
   --ring2: 0 0 0 3px rgba(15,61,46,.20);
@@ -53,6 +52,9 @@ body{
     radial-gradient(1100px 520px at 50% -12%, rgba(201,162,74,.10), transparent 60%),
     linear-gradient(180deg, #fff, var(--paper) 55%, #fff);
 }
+
+html.no-scroll, body.no-scroll{ overflow:hidden; } /* ✅ pour ton JS lockScroll */
+
 img{ max-width:100%; display:block; }
 a{ color:inherit; text-decoration:none; }
 
@@ -252,7 +254,7 @@ section[id]{ scroll-margin-top: 90px; }
 /* Hero */
 .hero{
   position:relative;
-  min-height:86vh;
+  min-height:92vh; /* ✅ hero plus grand => plus de photo visible */
   display:grid;
   align-items:center;
   overflow:hidden;
@@ -272,10 +274,6 @@ section[id]{ scroll-margin-top: 90px; }
   filter: contrast(1.03) saturate(1.02);
 }
 
-/* mobile */
-@media (max-width: 980px){
-  .hero__bg img{ object-position: var(--hero-pos-mobile); }
-}
 /* Overlay plus élégant + léger */
 .hero::after{
   content:"";
@@ -291,12 +289,12 @@ section[id]{ scroll-margin-top: 90px; }
   position:relative;
   z-index:2;
   display:grid;
-  grid-template-columns: 1.35fr 440px; /* photo plus large, carte plus étroite */
+  grid-template-columns: 1.45fr 420px; /* ✅ photo plus large + carte plus petite */
   gap:28px;
   align-items:center;
-  padding:92px 0;
+  padding:96px 0;
 }
-.hero__spacer{ height:660px; }
+.hero__spacer{ height:720px; } /* ✅ encore plus de photo visible */
 
 /* Carte droite */
 .hero__card--right{
@@ -304,16 +302,14 @@ section[id]{ scroll-margin-top: 90px; }
   justify-self:end;
   align-self:center;
   border-radius:24px;
-  padding:40px 28px;
   background:rgba(250,248,243,.92);
   border:1px solid rgba(230,211,163,.62);
   box-shadow: var(--shadow2);
   backdrop-filter: blur(10px);
   overflow: visible;
-  max-width: 440px;     /* carte plus petite */
-  padding: 32px 22px;   /* moins de padding => plus compact */
-}
 
+  max-width: 420px;    /* ✅ plus petit */
+  padding: 30px 20px;  /* ✅ plus compact */
 }
 
 /* Bordure “premium” */
@@ -352,16 +348,33 @@ section[id]{ scroll-margin-top: 90px; }
   z-index:1;
 }
 
+/* ✅ Notre Mariage : plus grand + doré + trait maquette */
 .hero__kicker{
   font-family: var(--font-serif);
-  font-size: 16px;              /* plus grand */
-  letter-spacing: .22em;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: .26em;
   text-transform: uppercase;
-  color: var(--gold-600);       /* doré */
-  margin: 0 0 6px;
-  text-shadow: 0 10px 22px rgba(0,0,0,.08);
+  color: var(--gold-600);
+  margin: 0 0 10px;
+  text-align: center;
+  text-shadow: 0 10px 22px rgba(0,0,0,.10);
+  position: relative;
+  padding-bottom: 10px;
 }
-
+.hero__kicker::after{
+  content:"";
+  display:block;
+  width: 120px;
+  height: 2px;
+  margin: 10px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg,
+    rgba(201,162,74,.18),
+    rgba(201,162,74,.95),
+    rgba(201,162,74,.18)
+  );
+}
 
 /* Noms hero — comme la maquette (1 ligne + soulignement sur le 2e prénom) */
 .hero__names{
@@ -719,7 +732,6 @@ html[lang="hy"] .hero__name--last::after{ display:none; }
   font-style: italic;
 }
 
-
 .card__head{ text-align:left; }
 .card__title{
   margin:0;
@@ -888,12 +900,12 @@ html[lang="hy"] .hero__name--last::after{ display:none; }
 
   .hero__layout{
     grid-template-columns:1fr;
-    padding:72px 0;
+    padding:78px 0;
   }
-  .hero__spacer{ height:340px; }
+  .hero__spacer{ height:390px; } /* ✅ plus de photo sur mobile */
 
   .hero__bg img{
-    object-position: 35% 62%;
+    object-position: var(--hero-pos-mobile); /* ✅ utilise ta variable */
     opacity:.96;
   }
   .hero::after{
@@ -905,7 +917,16 @@ html[lang="hy"] .hero__name--last::after{ display:none; }
   .hero__card--right{
     justify-self:stretch;
     margin-top:6px;
-    padding:26px 16px;
+    padding:24px 14px; /* ✅ plus compact */
+    max-width: none;
+  }
+
+  .hero__kicker{
+    font-size: 17px;     /* ✅ plus grand mobile */
+    letter-spacing: .22em;
+  }
+  .hero__kicker::after{
+    width: 110px;
   }
 
   .floral-svg{ width:132px; height:132px; }
