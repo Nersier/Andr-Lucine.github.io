@@ -142,24 +142,51 @@ function getQueryLang() {
   return null;
 }
 
-// Burger menu
+function lockScroll(lock) {
+  document.documentElement.classList.toggle("no-scroll", !!lock);
+  document.body.classList.toggle("no-scroll", !!lock);
+}
+
+// Burger menu (avec overlay + clic extérieur + no-scroll)
 function initBurger() {
   const burger = document.querySelector(".burger");
   const nav = document.querySelector(".nav");
-  if (!burger || !nav) return;
+  const overlay = document.getElementById("navOverlay");
+  if (!burger || !nav || !overlay) return;
+
+  const open = () => {
+    nav.classList.add("is-open");
+    burger.setAttribute("aria-expanded", "true");
+    overlay.hidden = false;
+    requestAnimationFrame(() => overlay.classList.add("is-on"));
+    lockScroll(true);
+  };
 
   const close = () => {
     nav.classList.remove("is-open");
     burger.setAttribute("aria-expanded", "false");
+    overlay.classList.remove("is-on");
+    lockScroll(false);
+    setTimeout(() => { overlay.hidden = true; }, 180);
   };
 
   burger.addEventListener("click", () => {
-    const open = nav.classList.toggle("is-open");
-    burger.setAttribute("aria-expanded", open ? "true" : "false");
+    const isOpen = nav.classList.contains("is-open");
+    isOpen ? close() : open();
   });
+
+  overlay.addEventListener("click", close);
 
   nav.querySelectorAll("a.nav__link").forEach(a => {
     a.addEventListener("click", () => close());
+  });
+
+  document.addEventListener("click", (e) => {
+    const isOpen = nav.classList.contains("is-open");
+    if (!isOpen) return;
+    const target = e.target;
+    if (nav.contains(target) || burger.contains(target)) return;
+    close();
   });
 
   window.addEventListener("keydown", (e) => {
@@ -167,23 +194,32 @@ function initBurger() {
   });
 }
 
-// Lightbox
+// Lightbox (focus + no-scroll)
 function initLightbox() {
   const lb = document.getElementById("lightbox");
   const lbImg = lb?.querySelector(".lightbox__img");
   const closeBtn = lb?.querySelector(".lightbox__close");
   if (!lb || !lbImg || !closeBtn) return;
 
+  let lastFocus = null;
+
   const open = (src) => {
+    lastFocus = document.activeElement;
     lbImg.src = src;
     lb.classList.add("is-open");
     lb.setAttribute("aria-hidden", "false");
+    lockScroll(true);
+    closeBtn.focus({ preventScroll: true });
   };
 
   const close = () => {
     lb.classList.remove("is-open");
     lb.setAttribute("aria-hidden", "true");
     lbImg.src = "";
+    lockScroll(false);
+    if (lastFocus && typeof lastFocus.focus === "function") {
+      lastFocus.focus({ preventScroll: true });
+    }
   };
 
   document.querySelectorAll(".gallery-bento a").forEach(a => {
