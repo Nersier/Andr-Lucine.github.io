@@ -280,8 +280,8 @@ section[id]{ scroll-margin-top: 90px; }
   position:absolute;
   inset:0;
   background:
-    radial-gradient(900px 520px at 26% 42%, rgba(15,61,46,.24), transparent 62%),
-    linear-gradient(90deg, rgba(15,61,46,.55) 0%, rgba(15,61,46,.36) 52%, rgba(15,61,46,.18) 100%);
+    radial-gradient(900px 520px at 26% 42%, rgba(15,61,46,.16), transparent 62%),
+    linear-gradient(90deg, rgba(15,61,46,.38) 0%, rgba(15,61,46,.22) 52%, rgba(15,61,46,.10) 100%);
 }
 
 /* Layout 2 colonnes */
