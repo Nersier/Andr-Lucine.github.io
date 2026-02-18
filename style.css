@@ -697,6 +697,7 @@ html[lang="hy"] .hero__name--last::after{ display:none; }
   margin-top:10px;
   font-weight:900;
   color:rgba(18,32,24,.78);
+  padding-bottom: 20px;
 }
 
 /* Places */
